@@ -3,351 +3,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Neo-Y2K Digital Space</title>
-    <!-- Tailwind CSS CDN -->
+    <title>~*~ Club Jenn ~*~</title>
+    <!-- Tailwind CSS for that quick styling magic -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom CSS for animations and basic styling */
+        /* Custom styles to really nail that Neo-Y2K vibe */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;700&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a; /* Dark background */
-            color: #ffffff;
-            min-height: 100vh;
+            background-color: #000000; /* Deep black background */
+            color: #00FF00; /* Classic neon green text */
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 1rem;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
-        /* Blob animations for background */
-        @keyframes blob {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
+        .y2k-container {
+            max-width: 900px; /* Classic fixed-ish width feel */
+            width: 95%; /* Responsive width */
+            background-color: #1A1A1A; /* Darker grey for content areas */
+            border: 4px dashed #00FFFF; /* Cyan dashed border for pop */
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 10px rgba(0, 255, 0, 0.5); /* Neon glow */
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 12px; /* Slightly rounded corners */
+            position: relative;
+            z-index: 1;
         }
 
-        .animate-blob {
-            animation: blob 7s infinite cubic-bezier(0.6, 0.01, 0.3, 0.9);
+        .y2k-header {
+            font-family: 'Press Start 2P', cursive;
+            color: #FF00FF; /* Bright magenta for headers */
+            text-shadow: 0 0 8px #FF00FF, 0 0 15px #00FFFF; /* Double neon text shadow */
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem; /* Larger header */
+            line-height: 1.2;
+            letter-spacing: 2px;
         }
 
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-            animation-delay: 4s;
-        }
-        .animation-delay-6000 {
-            animation-delay: 6s;
-        }
-
-        /* Pulse animation for titles */
-        @keyframes pulse {
-            0%, 100% {
-                text-shadow: 0 0 8px rgba(236,72,153,0.7);
-            }
-            50% {
-                text-shadow: 0 0 15px rgba(236,72,153,1);
-            }
+        .y2k-section-title {
+            font-family: 'Press Start 2P', cursive;
+            color: #00FFFF; /* Cyan for section titles */
+            text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FF00;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #FF00FF; /* Magenta underline */
+            text-align: center;
         }
 
-        .animate-pulse {
-            animation: pulse 2s infinite alternate;
+        .y2k-button {
+            display: inline-block;
+            background-color: #FF00FF; /* Magenta button */
+            color: #FFFFFF; /* White text */
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #00FFFF; /* Cyan border */
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 0px #00FF00; /* Green pixel shadow */
+            transition: all 0.1s ease-in-out;
+            cursor: pointer;
         }
 
-        /* Ripple effect for buttons (Material Design 3 inspired) */
-        @keyframes ripple {
-            from {
-                transform: scale(0);
-                opacity: 0.4;
-            }
-            to {
-                transform: scale(1.5);
-                opacity: 0;
-            }
+        .y2k-button:hover {
+            background-color: #00FFFF; /* Cyan on hover */
+            color: #000000; /* Black text on hover */
+            box-shadow: 3px 3px 0px #FF00FF; /* Magenta pixel shadow on hover */
+            transform: translate(-2px, -2px); /* Slight "pop" effect */
         }
 
-        .ripple-effect {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.4);
+        .y2k-link {
+            color: #00FFFF; /* Cyan links */
+            text-decoration: underline;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .y2k-link:hover {
+            color: #FF00FF; /* Magenta on hover */
+        }
+
+        .y2k-social-icon {
+            width: 50px; /* Size for social icons */
+            height: 50px;
+            background-color: #FF00FF; /* Magenta background for icons */
             border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none; /* Ensure ripples don't block clicks */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #000000; /* Black icon color */
+            border: 3px solid #00FFFF; /* Cyan border */
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
         }
 
-        /* Hide content sections by default, shown by JS */
-        .content-section {
-            display: none;
+        .y2k-social-icon:hover {
+            transform: scale(1.1) rotate(5deg); /* Spin and grow on hover */
+            background-color: #00FFFF; /* Cyan on hover */
+            color: #FF00FF; /* Magenta icon on hover */
         }
-        .content-section.active {
-            display: block;
+
+        .y2k-footer {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #00FF00; /* Neon green text */
+            border-top: 2px dotted #FF00FF; /* Magenta dotted line */
+            width: 100%;
+            background-color: #1A1A1A; /* Match container background */
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Green glow */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .y2k-header {
+                font-size: 1.8rem;
+            }
+            .y2k-section-title {
+                font-size: 1.5rem;
+            }
+            .y2k-container {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .y2k-header {
+                font-size: 1.4rem;
+            }
+            .y2k-section-title {
+                font-size: 1.2rem;
+            }
+            .y2k-button {
+                font-size: 0.8rem;
+                padding: 0.6rem 1rem;
+            }
+            .y2k-social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Basic scroll-to-top button */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Place at the bottom */
+            right: 20px; /* Place at the right */
+            z-index: 99; /* Ensure it's above other content */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #FF00FF; /* Magenta background */
+            color: white; /* White text */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 50%; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon glow */
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #00FFFF; /* Cyan on hover */
+            transform: scale(1.1);
+        }
+
+        /* Simple animation for floating elements, if you add them later */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Example of a floating element */
+        .floating-element {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .floating-square {
+            width: 50px;
+            height: 50px;
+            background-color: #00FF00;
+            box-shadow: 0 0 15px #00FF00;
+            transform: rotate(45deg);
+        }
+        .floating-triangle {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 60px solid #FF00FF;
+            box-shadow: 0 0 15px #FF00FF;
         }
     </style>
 </head>
-<body class="font-inter">
+<body>
 
-    <!-- Under Construction Banner -->
-    <div class="w-full max-w-4xl bg-gray-800 bg-opacity-90 rounded-lg p-3 mb-8 text-center shadow-lg border-2 border-pink-600 animate-pulse-border">
-        <p class="text-xl md:text-2xl font-bold text-pink-400 drop-shadow-[0_0_5px_rgba(236,72,153,0.5)]">
-            🚧 SITE UNDER CONSTRUCTION 🚧
-        </p>
-        <p class="text-sm md:text-base text-blue-300">
-            Pardon our dust! New digital experiences loading...
-        </p>
+    <!-- Floating decorative elements for extra Y2K flair -->
+    <div class="floating-element floating-square" style="top: 10%; left: 5%;"></div>
+    <div class="floating-element floating-triangle" style="bottom: 15%; right: 10%; animation-delay: 1s;"></div>
+    <div class="floating-element floating-square" style="top: 30%; right: 8%; animation-delay: 2s;"></div>
+
+    <div class="y2k-container">
+        <!-- Header Section -->
+        <header class="y2k-header">
+            <h1>~*~ Welcome to Club Jenn! ~*~</h1>
+            <p class="text-xl mt-4">My own corner of the internet!</p>
+        </header>
+
+        <!-- Navigation - Super simple, just text links for that old-school feel -->
+        <nav class="text-center mb-8">
+            <a href="#about" class="y2k-button mx-2 mb-2">About Me</a>
+            <a href="#socials" class="y2k-button mx-2 mb-2">My Socials</a>
+            <a href="#interests" class="y2k-button mx-2 mb-2">My Interests</a>
+            <a href="#projects" class="y2k-button mx-2 mb-2">My Projects</a>
+            <a href="#guestbook" class="y2k-button mx-2 mb-2">Sign My Guestbook!</a>
+        </nav>
+
+        <!-- About Me Section -->
+        <section id="about" class="mb-10">
+            <h2 class="y2k-section-title">:: About Me ::</h2>
+            <div class="text-lg leading-relaxed">
+                <p class="mb-4">
+                    Hey there, internet friend! 👋 Welcome to my little corner of the internet.
+                    I'm Jenn, a 26 year old human navigating this wild world.
+                    I'm currently based in Southern California, and I absolutely fell in love with this place.
+                    I'm always down to learn more about existing in the world.
+                </p>
+                <p class="mb-4">
+                    My vibe? It's a mix of music, urban hiking, and movies.
+                    I'm all about good vibes all around, whether it's through the beats I listen to,
+                    the trails I hike, or the films I watch. 🎶🌄🎬
+                </p>
+                <p>
+                    My big 3 are Gemini Sun, Gemini Moon, and Virgo Rising, 🌟
+                    and I'm super excited to connect with cool people like you! ✨
+                </p>
+                <!-- Add more paragraphs about yourself here! -->
+            </div>
+        </section>
+
+        <!-- My Socials Section -->
+        <section id="socials" class="mb-10">
+            <h2 class="y2k-section-title">:: My Digital Hangouts ::</h2>
+            <div class="flex flex-wrap justify-center gap-6 mt-6">
+                <!-- Replace # with your actual social links -->
+                <a href="https://www.instagram.com/xshatter.0/" target="_blank" class="y2k-social-icon" aria-label="My Instagram">📸</a>
+                <a href="https://bsky.app/profile/jennzz.org" target="_blank" class="y2k-social-icon" aria-label="My Bluesky">🦋</a>
+                <a href="#" target="_blank" class="y2k-social-icon" aria-label="My LinkedIn">🔗</a>
+                <a href="https://github.com/reachforthestars551" target="_blank" class="y2k-social-icon" aria-label="My GitHub/Portfolio">💻</a>
+                <!-- Add more social icons/links here! -->
+                <!-- Example for a music platform: -->
+                <a href="https://www.last.fm/user/Suicid3Moon" target="_blank" class="y2k-social-icon" aria-label="My last.fm">🎶</a>
+            </div>
+            <p class="text-center mt-6 text-sm">
+                Find me on these platforms! Don't be shy, say hi! 👋
+            </p>
+        </section>
+
+        <!-- My Interests Section -->
+        <section id="interests" class="mb-10">
+            <h2 class="y2k-section-title">:: What I'm Into ::</h2>
+            <div class="text-lg leading-relaxed">
+                <p class="mb-4">
+                    My brain is usually buzzing with thoughts about:
+                </p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Movies that make me think and feel things (like "Your Name," the "Spider-Verse" movies, "V for Vendetta," and "Bullet Train"  pure chaos, I love it!)</li>
+                    <li>Music that hits different (Porter Robinson, Jai Wolf, The Naked and Famous, and Charli XCX are on heavy rotation!)</li>
+                    <li>Getting lost in creative flows (currently learning FL Studio with my little MIDI keyboard, it's a journey!)</li>
+                    <li>Astrology and Numerology and how they shape our lives</li>
+                    <li>Urban hiking and exploring the hidden gems of our world</li>
+                    <li>Gaming, especially RPGs and story-driven games</li>
+                    <li>Art and design, from digital to traditional</li>
+                    <li>Writing, whether it's poetry, short stories, or just journaling my thoughts</li>
+                    <li>Sustainability and how we can make the world a better place</li>
+                    <li>Exploring new places and cultures</li>
+                    <!-- Add more interests here! -->
+                </ul>
+                <p class="mt-4">
+                    If any of this resonates, we should def connect!
+                </p>
+            </div>
+        </section>
+
+        <!-- My Projects/Creations Section -->
+        <section id="projects" class="mb-10">
+            <h2 class="y2k-section-title">:: My Digital Creations ::</h2>
+            <div class="text-lg leading-relaxed">
+                <p class="mb-4">
+                    I'm always cooking up something new! Here's a peek at what I've been working on:
+                </p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>
+                        <strong>[Project Name 1]:</strong> [Brief description of Project 1, e.g., A sick beat I made in FL Studio, a cool art piece, a small coding project].
+                        <a href="#" class="y2k-link ml-2" target="_blank">(Check it out!)</a>
+                    </li>
+                    <li>
+                        <strong>[Project Name 2]:</strong> [Brief description of Project 2, e.g., My thoughts on a recent film, a short story I wrote].
+                        <a href="#" class="y2k-link ml-2" target="_blank">(Read more)</a>
+                    </li>
+                    <!-- Add more projects/creations here! -->
+                    <li>
+                        <strong>[Coming Soon!]:</strong> Always brewing new ideas. Stay tuned!
+                    </li>
+                </ul>
+                <p class="mt-4">
+                    Got any feedback or just wanna chat about creative stuff? Hit me up!
+                </p>
+            </div>
+        </section>
+
+        <!-- Guestbook Section (as a placeholder for a form) -->
+        <section id="guestbook" class="mb-10">
+            <h2 class="y2k-section-title">:: Sign My Guestbook! ::</h2>
+            <div class="text-lg leading-relaxed">
+                <p class="mb-4 text-center">
+                    Leave a message, say hi, or just drop your favorite emoji! ✨
+                </p>
+                <form class="flex flex-col gap-4 max-w-md mx-auto">
+                    <input type="text" placeholder="Your Name/Alias" class="p-3 bg-gray-800 text-white border-2 border-purple-500 rounded-md focus:outline-none focus:border-cyan-400 y2k-link">
+                    <input type="email" placeholder="Your Email (Optional)" class="p-3 bg-gray-800 text-white border-2 border-purple-500 rounded-md focus:outline-none focus:border-cyan-400 y2k-link">
+                    <textarea placeholder="Your Message" rows="5" class="p-3 bg-gray-800 text-white border-2 border-purple-500 rounded-md focus:outline-none focus:border-cyan-400 y2k-link"></textarea>
+                    <button type="submit" class="y2k-button mt-4">Send Message</button>
+                </form>
+                <p class="text-center mt-6 text-sm">
+                    (Note: This is a placeholder form.)
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="y2k-footer">
+            <p>&copy; 2025 Jenn - All Rights Reserved (probably). ✨</p>
+            <p>Made with love and a whole lotta cyber-glitter. 💖</p>
+            <p class="mt-2 text-xs">
+                <a href="#" class="y2k-link">Privacy Policy</a> | <a href="#" class="y2k-link">Terms of Use</a>
+            </p>
+            <!-- You can add a static "hit counter" here for fun -->
+            <p class="mt-2 text-xs">Visitors: [042069] 💻</p>
+        </footer>
     </div>
-    <style>
-        @keyframes pulse-border {
-            0%, 100% {
-                border-color: #db2777; /* pink-600 */
-                box-shadow: 0 0 10px rgba(236, 72, 153, 0.7);
-            }
-            50% {
-                border-color: #60a5fa; /* blue-400 */
-                box-shadow: 0 0 20px rgba(96, 165, 250, 0.9);
-            }
-        }
-        .animate-pulse-border {
-            animation: pulse-border 3s infinite alternate;
-        }
-    </style>
 
-    <!-- Navigation Bar -->
-    <nav class="w-full max-w-4xl bg-gray-900 bg-opacity-70 backdrop-blur-sm rounded-full p-2 mb-8 shadow-xl border-2 border-blue-700 flex justify-center">
-        <ul class="flex space-x-4 md:space-x-8">
-            <li>
-                <button id="home-btn" class="nav-btn py-2 px-4 rounded-full text-lg md:text-xl font-semibold transition-all duration-300 text-gray-300 hover:text-pink-400 hover:bg-gray-700 hover:shadow-sm">
-                    HOME
-                </button>
-            </li>
-            <li>
-                <button id="links-btn" class="nav-btn py-2 px-4 rounded-full text-lg md:text-xl font-semibold transition-all duration-300 text-gray-300 hover:text-blue-400 hover:bg-gray-700 hover:shadow-sm">
-                    LINKS
-                </button>
-            </li>
-            <li>
-                <button id="about-btn" class="nav-btn py-2 px-4 rounded-full text-lg md:text-xl font-semibold transition-all duration-300 text-gray-300 hover:text-pink-400 hover:bg-gray-700 hover:shadow-sm">
-                    ABOUT
-                </button>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Main Content Area -->
-    <main class="w-full max-w-4xl bg-gray-900 bg-opacity-80 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-2xl border-2 border-blue-800 relative overflow-hidden">
-        <!-- Background gradient/pattern for Y2K feel -->
-        <div class="absolute inset-0 z-0 opacity-20">
-            <div class="absolute top-0 left-0 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-            <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-6000"></div>
-        </div>
-
-        <!-- Content Sections -->
-        <div class="relative z-10">
-            <!-- Home Section -->
-            <section id="home-section" class="content-section active text-center p-8 md:p-16">
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 text-pink-500 drop-shadow-[0_0_8px_rgba(236,72,153,0.7)] animate-pulse">
-                    HEY THERE!
-                </h1>
-                <p class="text-xl md:text-3xl text-blue-400 mb-8 drop-shadow-[0_0_5px_rgba(96,165,250,0.5)]">
-                    Welcome to my digital space. 🌐
-                </p>
-                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-                    This is where I'm building out my corner of the internet.
-                    Explore the links below to dive deeper!
-                </p>
-            </section>
-
-            <!-- Links Section -->
-            <section id="links-section" class="content-section p-8 md:p-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]">
-                    MY DIGITAL SPOTS
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Example Link Card 1: GitHub -->
-                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
-                       class="block p-6 bg-gray-800 rounded-xl border-2 border-pink-600 hover:border-pink-400 transition-all duration-300 shadow-lg hover:shadow-pink-500/40 transform hover:-translate-y-1 flex items-center space-x-4">
-                        <!-- GitHub Icon (inline SVG for simplicity) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3c0-.66-2.68-1.33-3.98 1.33A10.68 10.68 0 0 0 12 3c-2.7 0-5.32.73-7 2.27C4.08 4.33 1.33 5 1.33 5a5.44 5.44 0 0 0-1.03 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-pink-400 mb-2">GitHub</h3>
-                            <p class="text-gray-300">Check out my coding projects and contributions.</p>
-                        </div>
-                    </a>
-
-                    <!-- Example Link Card 2: LinkedIn -->
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
-                       class="block p-6 bg-gray-800 rounded-xl border-2 border-blue-600 hover:border-blue-400 transition-all duration-300 shadow-lg hover:shadow-blue-500/40 transform hover:-translate-y-1 flex items-center space-x-4">
-                        <!-- LinkedIn Icon (inline SVG) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-blue-400 mb-2">LinkedIn</h3>
-                            <p class="text-gray-300">Connect with me professionally.</p>
-                        </div>
-                    </a>
-
-                    <!-- Example Link Card 3: Twitter/X -->
-                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"
-                       class="block p-6 bg-gray-800 rounded-xl border-2 border-pink-600 hover:border-pink-400 transition-all duration-300 shadow-lg hover:shadow-pink-500/40 transform hover:-translate-y-1 flex items-center space-x-4">
-                        <!-- Twitter/X Icon (inline SVG) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400">
-                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 11.4 1.2 14.6-7.3 14.6-7.3A4.5 4.5 0 0 0 14 4.5c-.7 1.5-1.7 2.5-3 3.4-3.5 1.7-6.5-1.5-6.5-1.5S9 1.5 10.5 0c1.5 1.5 3.5 2.5 5 3.4 1.5-1.5 2.5-2.5 3.4-3.4 1.5 1.5 2.5 3.5 3.4 5z"></path>
-                        </svg>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-pink-400 mb-2">Twitter/X</h3>
-                            <p class="text-gray-300">My random thoughts and updates.</p>
-                        </div>
-                    </a>
-
-                    <!-- Add more link cards as needed: Blog -->
-                    <a href="https://yourblog.com" target="_blank" rel="noopener noreferrer"
-                       class="block p-6 bg-gray-800 rounded-xl border-2 border-blue-600 hover:border-blue-400 transition-all duration-300 shadow-lg hover:shadow-blue-500/40 transform hover:-translate-y-1 flex items-center space-x-4">
-                        <!-- Blog Icon (inline SVG) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400">
-                            <path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
-                            <path d="M9 18h6"></path>
-                            <path d="M9 14h6"></path>
-                            <path d="M9 10h6"></path>
-                        </svg>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-blue-400 mb-2">My Blog</h3>
-                            <p class="text-gray-300">Deep dives into my interests and thoughts.</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <!-- About Section -->
-            <section id="about-section" class="content-section p-8 md:p-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 text-pink-500 drop-shadow-[0_0_8px_rgba(236,72,153,0.7)]">
-                    ABOUT ME
-                </h2>
-                <div class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-                    <p class="mb-4">
-                        Hey! I'm a 26-year-old transgirl navigating life and learning new things every day. I'm based in Moreno Valley, CA, and I'm all about starting fresh and exploring what's next.
-                    </p>
-                    <p class="mb-4">
-                        When I'm not doing that, you can probably find me listening to artists like Porter Robinson, Jai Wolf, The Naked and Famous, and Charli XCX. 🎧
-                    </p>
-                    <p class="mb-4">
-                        I've got a background in sales, hospitality, and coffee – basically, I love connecting with people! And yeah, my "big 3" is Gemini, Virgo, Virgo, if you're into that. 😉
-                    </p>
-                    <p>
-                        This site is a work in progress, just like me! Thanks for stopping by.
-                    </p>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-8 text-gray-500 text-sm">
-        <p>&copy; Written with Love and Gemini ✨</p>
-    </footer>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Go to top">⬆️</button>
 
     <script>
-        // Get references to DOM elements
-        const navButtons = document.querySelectorAll('.nav-btn');
-        const contentSections = document.querySelectorAll('.content-section');
-        const homeBtn = document.getElementById('home-btn');
-        const linksBtn = document.getElementById('links-btn');
-        const aboutBtn = document.getElementById('about-btn');
-        // Removed oracleBtn reference
-
-        // Removed oraclePromptInput, askOracleBtn, oracleResponseContainer, oracleResponseText references
-
-        // Function to show a specific content section and update active button style
-        function showPage(pageId) {
-            // Hide all content sections
-            contentSections.forEach(section => {
-                section.classList.remove('active');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
+        });
 
-            // Remove active style from all nav buttons
-            navButtons.forEach(button => {
-                button.classList.remove('bg-pink-600', 'text-white', 'shadow-pink-500/50', 'shadow-md', 'border', 'border-pink-400');
-                button.classList.remove('bg-blue-600', 'text-white', 'shadow-blue-500/50', 'shadow-md', 'border', 'border-blue-400');
-                button.classList.add('text-gray-300', 'hover:text-pink-400', 'hover:bg-gray-700', 'hover:shadow-sm');
-                button.classList.add('text-gray-300', 'hover:text-blue-400', 'hover:bg-gray-700', 'hover:shadow-sm');
-            });
+        // Show/hide scroll to top button
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-            // Show the selected section
-            document.getElementById(`${pageId}-section`).classList.add('active');
+        window.onscroll = function() { scrollFunction() };
 
-            // Add active style to the corresponding nav button
-            const activeBtn = document.getElementById(`${pageId}-btn`);
-            if (activeBtn) {
-                activeBtn.classList.remove('text-gray-300', 'hover:text-pink-400', 'hover:bg-gray-700', 'hover:shadow-sm');
-                activeBtn.classList.remove('text-gray-300', 'hover:text-blue-400', 'hover:bg-gray-700', 'hover:shadow-sm');
-                // Determine color based on button ID
-                if (pageId === 'home' || pageId === 'about') {
-                    activeBtn.classList.add('bg-pink-600', 'text-white', 'shadow-pink-500/50', 'shadow-md', 'border', 'border-pink-400');
-                } else {
-                    activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow-blue-500/50', 'shadow-md', 'border', 'border-blue-400');
-                }
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
             }
         }
 
-        // Initialize with the home page active
-        document.addEventListener('DOMContentLoaded', () => {
-            showPage('home');
+        // When the user clicks on the button, scroll to the top of the document
+        scrollToTopBtn.addEventListener('click', function() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         });
-
-        // Add event listeners for navigation buttons
-        homeBtn.addEventListener('click', () => showPage('home'));
-        linksBtn.addEventListener('click', () => showPage('links'));
-        aboutBtn.addEventListener('click', () => showPage('about'));
-        // Removed oracleBtn event listener
-
-        // Function to create ripple effect (Material Design 3)
-        function createRipple(event) {
-            const button = event.currentTarget;
-            const size = Math.max(button.offsetWidth, button.offsetHeight);
-            const rect = button.getBoundingClientRect();
-            const x = event.clientX - rect.left - size / 2;
-            const y = event.clientY - rect.top - size / 2;
-
-            const ripple = document.createElement('span');
-            ripple.classList.add('ripple-effect');
-            ripple.style.width = `${size}px`;
-            ripple.style.height = `${size}px`;
-            ripple.style.left = `${x}px`;
-            ripple.style.top = `${y}px`;
-
-            button.appendChild(ripple);
-
-            // Remove the ripple after its animation
-            ripple.addEventListener('animationend', () => {
-                ripple.remove();
-            });
-        }
-
-        // Add ripple effect to all navigation buttons
-        navButtons.forEach(button => {
-            button.style.position = 'relative'; /* Required for absolute positioning of ripple */
-            button.style.overflow = 'hidden'; /* Hide overflow of ripple */
-            button.addEventListener('click', createRipple);
-        });
-
-        // Removed askOracle function and its event listener
     </script>
 </body>
 </html>

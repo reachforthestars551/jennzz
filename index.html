@@ -141,11 +141,6 @@
                     ABOUT
                 </button>
             </li>
-            <li>
-                <button id="oracle-btn" class="nav-btn py-2 px-4 rounded-full text-lg md:text-xl font-semibold transition-all duration-300 text-gray-300 hover:text-blue-400 hover:bg-gray-700 hover:shadow-sm">
-                    ORACLE
-                </button>
-            </li>
         </ul>
     </nav>
 
@@ -247,44 +242,20 @@
                 </h2>
                 <div class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
                     <p class="mb-4">
-                        Hey! I'm a 26-year-old transgirl navigating life and learning new things every day. I'm based in Southern California, and I'm all about starting fresh and exploring what's next.
+                        Hey! I'm a 26-year-old transgirl navigating life and learning new things every day. I'm based in Moreno Valley, CA, and I'm all about starting fresh and exploring what's next.
                     </p>
                     <p class="mb-4">
-                        When I'm not doing that, you can probably find me chilling with some amazing artists like Porter Robinson, Jai Wolf, The Naked and Famous, and Charli XCX. 🎧
+                        When I'm not doing that, you can probably find me chilling with some amazing movies like 'Your Name' or 'Spider-Verse,' or getting lost in the vibes of 'V for Vendetta' and 'Bullet Train.' My ears are usually blessed by artists like Porter Robinson, Jai Wolf, The Naked and Famous, and Charli XCX. 🎧
                     </p>
                     <p class="mb-4">
-                        My "big 3" is Gemini, Virgo, Virgo, if you're into that. 😉
+                        I'm also diving into music production with FL Studio and my little MIDI keyboard. It's a whole new world! My values? Sustainability and openness are super important to me. Always trying to keep it real and green. ♻️
+                    </p>
+                    <p class="mb-4">
+                        I've got a background in sales, hospitality, and coffee – basically, I love connecting with people! And yeah, my "big 3" is Gemini, Virgo, Virgo, if you're into that. 😉
                     </p>
                     <p>
                         This site is a work in progress, just like me! Thanks for stopping by.
                     </p>
-                </div>
-            </section>
-
-            <!-- Oracle Section -->
-            <section id="oracle-section" class="content-section p-8 md:p-16 text-center">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 text-pink-500 drop-shadow-[0_0_8px_rgba(236,72,153,0.7)]">
-                    DIGITAL ORACLE ✨
-                </h2>
-                <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
-                    Ask the Oracle a question and receive a glimpse into the digital unknown.
-                </p>
-                   <p class="text-lg md:text-l text-gray-300 mb-6 max-w-2xl mx-auto">
-                    (Powered by Google Gemini)
-                </p>
-                <div class="flex flex-col items-center space-y-4 max-w-xl mx-auto">
-                    <textarea id="oracle-prompt"
-                        class="w-full p-4 rounded-lg bg-gray-800 text-white border-2 border-blue-600 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 resize-none h-32 md:h-40 text-lg"
-                        placeholder="What does the digital future hold for me?"></textarea>
-                    <button id="ask-oracle-btn"
-                        class="py-3 px-8 rounded-full text-xl font-bold bg-blue-600 text-white shadow-blue-500/50 shadow-md border border-blue-400 hover:bg-blue-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                        ASK THE ORACLE ✨
-                    </button>
-
-                    <div id="oracle-response-container" class="mt-8 p-6 bg-gray-800 rounded-xl border-2 border-pink-600 shadow-lg text-gray-200 text-left w-full hidden">
-                        <p class="text-pink-400 font-bold mb-2">ORACLE'S RESPONSE:</p>
-                        <p id="oracle-response" class="text-lg leading-relaxed"></p>
-                    </div>
                 </div>
             </section>
         </div>
@@ -292,7 +263,7 @@
 
     <!-- Footer -->
     <footer class="mt-8 text-gray-500 text-sm">
-        <p>&copy; Written with Love and HTML and CSS and JS. ✨</p>
+        <p>&copy; 2025 Your Name. All rights reserved. ✨</p>
     </footer>
 
     <script>
@@ -302,12 +273,9 @@
         const homeBtn = document.getElementById('home-btn');
         const linksBtn = document.getElementById('links-btn');
         const aboutBtn = document.getElementById('about-btn');
-        const oracleBtn = document.getElementById('oracle-btn');
+        // Removed oracleBtn reference
 
-        const oraclePromptInput = document.getElementById('oracle-prompt');
-        const askOracleBtn = document.getElementById('ask-oracle-btn');
-        const oracleResponseContainer = document.getElementById('oracle-response-container');
-        const oracleResponseText = document.getElementById('oracle-response');
+        // Removed oraclePromptInput, askOracleBtn, oracleResponseContainer, oracleResponseText references
 
         // Function to show a specific content section and update active button style
         function showPage(pageId) {
@@ -350,7 +318,7 @@
         homeBtn.addEventListener('click', () => showPage('home'));
         linksBtn.addEventListener('click', () => showPage('links'));
         aboutBtn.addEventListener('click', () => showPage('about'));
-        oracleBtn.addEventListener('click', () => showPage('oracle'));
+        // Removed oracleBtn event listener
 
         // Function to create ripple effect (Material Design 3)
         function createRipple(event) {
@@ -382,58 +350,7 @@
             button.addEventListener('click', createRipple);
         });
 
-        // Function to call the Gemini API for the Digital Oracle
-        async function askOracle() {
-            const promptText = oraclePromptInput.value.trim();
-            if (!promptText) {
-                oracleResponseText.textContent = 'Please enter a question for the Oracle.';
-                oracleResponseContainer.classList.remove('hidden');
-                return;
-            }
-
-            askOracleBtn.disabled = true;
-            askOracleBtn.textContent = 'ACCESSING DATABANKS...';
-            oracleResponseText.textContent = ''; // Clear previous response
-            oracleResponseContainer.classList.remove('hidden'); // Ensure container is visible
-
-            try {
-                let chatHistory = [];
-                // Construct a prompt that encourages a Y2K-style, slightly cryptic response
-                const prompt = `As a Neo-Y2K Digital Oracle, respond to the following query with a short, cryptic, and retro-futuristic message, like an old dial-up prophecy. Keep it under 100 words. Query: "${promptText}"`;
-                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-
-                const payload = { contents: chatHistory };
-                const apiKey = ""; // Leave as empty string for Canvas environment
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    oracleResponseText.textContent = text;
-                } else {
-                    oracleResponseText.textContent = 'Oracle connection lost. Try again later. ERROR: No valid response from LLM.';
-                    console.error('Unexpected LLM response structure:', result);
-                }
-            } catch (error) {
-                console.error('Error calling Gemini API:', error);
-                oracleResponseText.textContent = 'Oracle is offline. System error: ' + error.message;
-            } finally {
-                askOracleBtn.disabled = false;
-                askOracleBtn.textContent = 'ASK THE ORACLE ✨';
-            }
-        }
-
-        // Add event listener for the Oracle button
-        askOracleBtn.addEventListener('click', askOracle);
+        // Removed askOracle function and its event listener
     </script>
 </body>
 </html>

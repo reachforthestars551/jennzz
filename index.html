@@ -212,9 +212,113 @@
             border-bottom: 60px solid #FF00FF;
             box-shadow: 0 0 15px #FF00FF;
         }
+
+        /* Styles for the intro overlay */
+        #introOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* Black background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100; /* Ensure it's on top of everything */
+            color: #00FF00; /* Neon green text */
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: opacity 0.5s ease-out; /* Smooth fade out */
+        }
+
+        #introOverlay.hidden {
+            opacity: 0;
+            pointer-events: none; /* Disable interaction when hidden */
+        }
+
+        #enterButton {
+            background-color: #FF00FF; /* Magenta button */
+            color: #FFFFFF; /* White text */
+            padding: 1rem 2rem;
+            border: 3px solid #00FFFF; /* Cyan border */
+            border-radius: 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            box-shadow: 5px 5px 0px #00FF00; /* Green pixel shadow */
+            transition: all 0.1s ease-in-out;
+            cursor: pointer;
+            margin-top: 2rem;
+        }
+
+        #enterButton:hover {
+            background-color: #00FFFF; /* Cyan on hover */
+            color: #000000; /* Black text on hover */
+            box-shadow: 5px 5px 0px #FF00FF; /* Magenta pixel shadow on hover */
+            transform: translate(-3px, -3px); /* Slight "pop" effect */
+        }
+
+        #overlayTitle {
+            font-size: 3rem;
+            color: #FF00FF;
+            text-shadow: 0 0 10px #FF00FF, 0 0 20px #00FFFF;
+            margin-bottom: 1rem;
+        }
+
+        #overlaySubtitle {
+            font-size: 1.2rem;
+            color: #00FFFF;
+            text-shadow: 0 0 5px #00FFFF;
+        }
+
+        /* Responsive adjustments for overlay */
+        @media (max-width: 768px) {
+            #overlayTitle {
+                font-size: 2.2rem;
+            }
+            #overlaySubtitle {
+                font-size: 1rem;
+            }
+            #enterButton {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #overlayTitle {
+                font-size: 1.8rem;
+            }
+            #overlaySubtitle {
+                font-size: 0.9rem;
+            }
+            #enterButton {
+                font-size: 1rem;
+                padding: 0.7rem 1.2rem;
+            }
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Intro Overlay -->
+    <div id="introOverlay">
+        <h1 id="overlayTitle">~*~ Club Jenn ~*~</h1>
+        <p id="overlaySubtitle">Press Enter to dive into the digital realm!</p>
+        <button id="enterButton">Enter</button>
+    </div>
+
+    <!-- Audio Element -->
+    <!-- IMPORTANT: Replace 'your-audio-file.mp3' with the actual URL of your MP3! -->
+    <!-- You can find free audio hosting or use a service like SoundCloud for direct links. -->
+    <audio id="backgroundMusic" loop>
+        <source src="hollowheart.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <!-- Floating decorative elements for extra Y2K flair -->
     <div class="floating-element floating-square" style="top: 10%; left: 5%;"></div>
@@ -393,6 +497,47 @@
         scrollToTopBtn.addEventListener('click', function() {
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        });
+
+        // Intro Overlay and Music Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const introOverlay = document.getElementById('introOverlay');
+            const enterButton = document.getElementById('enterButton');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+
+            // Function to hide the overlay and play music
+            function enterWebsite() {
+                introOverlay.classList.add('hidden'); // Add 'hidden' class to fade out
+                // Use a timeout to fully remove the overlay after the transition
+                setTimeout(() => {
+                    introOverlay.style.display = 'none';
+                }, 500); // Matches the transition duration
+
+                // Attempt to play the music
+                const playPromise = backgroundMusic.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Autoplay started!
+                        console.log("Music started playing!");
+                    }).catch(error => {
+                        // Autoplay was prevented. Show a message or a play button.
+                        console.error("Music autoplay prevented:", error);
+                        // You might want to add a visible play/pause button if autoplay fails
+                        // For now, we'll just log the error.
+                    });
+                }
+            }
+
+            // Add event listener for the enter button
+            enterButton.addEventListener('click', enterWebsite);
+
+            // Optional: If you want to allow pressing 'Enter' key as well
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' && introOverlay.style.display !== 'none') {
+                    enterWebsite();
+                }
+            });
         });
     </script>
 </body>

@@ -98,6 +98,31 @@
 </head>
 <body class="font-inter">
 
+    <!-- Under Construction Banner -->
+    <div class="w-full max-w-4xl bg-gray-800 bg-opacity-90 rounded-lg p-3 mb-8 text-center shadow-lg border-2 border-pink-600 animate-pulse-border">
+        <p class="text-xl md:text-2xl font-bold text-pink-400 drop-shadow-[0_0_5px_rgba(236,72,153,0.5)]">
+            🚧 SITE UNDER CONSTRUCTION 🚧
+        </p>
+        <p class="text-sm md:text-base text-blue-300">
+            Pardon our dust! New digital experiences loading...
+        </p>
+    </div>
+    <style>
+        @keyframes pulse-border {
+            0%, 100% {
+                border-color: #db2777; /* pink-600 */
+                box-shadow: 0 0 10px rgba(236, 72, 153, 0.7);
+            }
+            50% {
+                border-color: #60a5fa; /* blue-400 */
+                box-shadow: 0 0 20px rgba(96, 165, 250, 0.9);
+            }
+        }
+        .animate-pulse-border {
+            animation: pulse-border 3s infinite alternate;
+        }
+    </style>
+
     <!-- Navigation Bar -->
     <nav class="w-full max-w-4xl bg-gray-900 bg-opacity-70 backdrop-blur-sm rounded-full p-2 mb-8 shadow-xl border-2 border-blue-700 flex justify-center">
         <ul class="flex space-x-4 md:space-x-8">
@@ -222,16 +247,13 @@
                 </h2>
                 <div class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
                     <p class="mb-4">
-                        Hey! I'm a 26-year-old transgirl navigating life and learning new things every day. I'm based in Moreno Valley, CA, and I'm all about starting fresh and exploring what's next.
+                        Hey! I'm a 26-year-old transgirl navigating life and learning new things every day. I'm based in Southern California, and I'm all about starting fresh and exploring what's next.
                     </p>
                     <p class="mb-4">
                         When I'm not doing that, you can probably find me chilling with some amazing movies like 'Your Name' or 'Spider-Verse,' or getting lost in the vibes of 'V for Vendetta' and 'Bullet Train.' My ears are usually blessed by artists like Porter Robinson, Jai Wolf, The Naked and Famous, and Charli XCX. 🎧
                     </p>
                     <p class="mb-4">
-                        I'm also diving into music production with FL Studio and my little MIDI keyboard. It's a whole new world! My values? Sustainability and openness are super important to me. Always trying to keep it real and green. ♻️
-                    </p>
-                    <p class="mb-4">
-                        I've got a background in sales, hospitality, and coffee – basically, I love connecting with people! And yeah, my "big 3" is Gemini, Virgo, Virgo, if you're into that. 😉
+                        My "big 3" is Gemini, Virgo, Virgo, if you're into that. 😉
                     </p>
                     <p>
                         This site is a work in progress, just like me! Thanks for stopping by.
@@ -246,6 +268,9 @@
                 </h2>
                 <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
                     Ask the Oracle a question and receive a glimpse into the digital unknown.
+                </p>
+                   <p class="text-lg md:text-l text-gray-300 mb-6 max-w-2xl mx-auto">
+                    (Powered by Google Gemini)
                 </p>
                 <div class="flex flex-col items-center space-y-4 max-w-xl mx-auto">
                     <textarea id="oracle-prompt"
@@ -267,7 +292,7 @@
 
     <!-- Footer -->
     <footer class="mt-8 text-gray-500 text-sm">
-        <p>&copy; 2025 Your Name. All rights reserved. ✨</p>
+        <p>&copy; Written with Love and HTML and CSS and JS. ✨</p>
     </footer>
 
     <script>
